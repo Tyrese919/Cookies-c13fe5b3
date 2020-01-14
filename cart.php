@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+  session_start();
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,15 +16,16 @@
         <h1>Skeelers <small>(#3)</small></h1>
 
         <form method="post">
-          <input type="number" name="" value="" placeholder="Keuze">
-          <input type="submit" name="User" value="Submit">
+          <input type="number" name="User" value="" placeholder="Keuze">
+          <input type="submit" name="" value="Submit">
         </form>
 
     <?php
 
-      session_start();
       if (isset($_POST["User"])) {
-        setcookie("User", $_POST["User"]);
+        if ($_POST["User"] < 4) {
+          setcookie("User", $_POST["User"]);
+        }
       }
 
     ?>
